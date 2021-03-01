@@ -3,6 +3,7 @@ const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -52,6 +53,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     isDevelopment && new ReactRefreshPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
